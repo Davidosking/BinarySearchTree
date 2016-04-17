@@ -10,8 +10,17 @@ public class LinkedNode<T> {
     private LinkedNode next;
     private T data;
     
-    LinkedNode(LinkedNode next){
+    public LinkedNode(LinkedNode next){
         this.next = next;
+    }
+    public LinkedNode(T data){
+        this.data = data;
+        this.next = null;
+    }
+    
+    public LinkedNode(){
+        this.next = null;
+        this.data = null;
     }
 
     /**
@@ -32,7 +41,7 @@ public class LinkedNode<T> {
      * @return the data
      */
     public T getData() {
-        return data;
+        return this.data;
     }
 
     /**
