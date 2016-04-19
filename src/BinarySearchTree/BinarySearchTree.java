@@ -54,45 +54,6 @@ public class BinarySearchTree {
 
     }
 
-//    private BinaryNode delete(BinaryNode root, Comparable val) {
-//        if (root == null) {
-//            System.out.println("The tree is empty. There is nothing to delete.");
-//            return null;
-//        }
-//        if (val.equals(root.getData())) {
-//            if (root.getLeftChild() == null && root.getRightChild() == null) {
-//                return null;
-//            }
-//            if (root.getLeftChild() == null) {
-//                return root.getRightChild();
-//            }
-//            if (root.getRightChild() == null) {
-//                return root.getLeftChild();
-//            }
-//            BinaryNode temp = smallestNode(root.getRightChild());
-//            System.out.println();
-//            System.out.println(temp.getData());
-//            System.out.println();
-//            if (temp.getData().compareTo(root.getRightChild().getData()) < 0) {
-//                root.setData(temp.getData());
-//                root.setRightChild(delete(root.getRightChild(), temp.getData()));
-//                return root;
-//            } else {
-//                root.setData(root.getRightChild().getData());
-//
-//                root.setRightChild(delete(root.getRightChild(), root.getRightChild().getData()));
-//                return root;
-//            }
-//
-//        } else if (val.compareTo(root.getData()) < 0) {
-//            root.setRightChild(delete(root.getLeftChild(), val));
-//
-//        } else {
-//            root.setRightChild(delete(root.getRightChild(), val));
-//        }
-//        System.out.println("tt");
-//        return root;
-//    }
     private BinaryNode delete(BinaryNode root, Comparable val) {
         if (root == null) {
             System.out.println("The tree is empty. There is nothing to delete.");
@@ -106,9 +67,7 @@ public class BinarySearchTree {
                 return root.getLeftChild();
             }
             BinaryNode temp = smallestNode(root.getRightChild());
-            System.out.println();
-            System.out.println(temp.getData());
-            System.out.println("^");
+          
             if (temp.getData().compareTo(root.getRightChild().getData()) < 0) {
                 root.setData(temp.getData());
                 root.setRightChild(delete(root.getRightChild(), temp.getData()));
@@ -126,7 +85,7 @@ public class BinarySearchTree {
         } else {
             root.setRightChild(delete(root.getRightChild(), val));
         }
-        System.out.println("tt");
+        
         return root;
     }
 
@@ -134,11 +93,9 @@ public class BinarySearchTree {
         BinaryNode temp = null;
         if (node.getLeftChild() == null && node.getRightChild() == null) {
             temp = node;
-        }
-        else if (node.getLeftChild() != null) {
+        } else if (node.getLeftChild() != null) {
             temp = smallestNode(node.getLeftChild());
-        }
-        else if (node.getRightChild() != null) {
+        } else if (node.getRightChild() != null) {
             temp = smallestNode(node.getRightChild());
         }
         if (temp != null) {
